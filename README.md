@@ -2,4 +2,4 @@ This is a basic Prolog interpreter implemented in OCaml language. OCaml is a fun
 
 **Run the run.sh file** as follows:
 
-sh ./run.sh ***input file name containing the prolog code***
+sh ./run.sh ***<input file name containing the prolog code>***
