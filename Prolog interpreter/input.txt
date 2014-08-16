@@ -1,0 +1,169 @@
+married(eddard,catelyn).
+married(jon , lisa ).
+married(craster, gilly).
+married(cersi , robert ).
+married(joanna ,tywin ).
+married(kevan , dorna ).
+married(tyron  , sansa ).
+married(steffon , cassana ).
+married(stannis ,selyse ).
+married(renly , margaery ).
+married(talisa , robb ).
+married(aerys , rhaella ).
+married(drogo, daenerys ).
+married(aegonV,aegonVwife).
+married(jaehaerys, jaehaeryswife).
+married(rhaelle, rhaellewife).
+married(minisa,hoster).
+married(a,b,c)).
+
+child(jaehaerys,aegonV).
+child(jaehaerys,aegonVwife).
+child(aerys,jaehaerys).
+child(rhaella,jaehaerys).
+child(aerys,jaehaeryswife).
+child(rhaella,jaehaeryswife).
+child(rhaelle,aegonV).
+child(rhaelle,aegonVwife).
+child(steffon,rhaelle).
+child(steffon,rhaellewife).
+child(catelyn ,hoster ).
+child(lisa , hoster ).
+child(edmure,hoster ).
+child(catelyn ,minisa ).
+child(lisa , minisa ).
+child(edmure,minisa ).
+child(eddard ,richard ).
+child(brandon ,richard ).
+child(robb ,eddard ).
+child(sansa ,eddard ).
+child(arya ,eddard ).
+child(bran ,eddard ).
+child(rickon ,eddard ).
+child(jonsnow,eddard ).
+child(robb ,catelyn ).
+child(sansa ,catelyn ).
+child(arya ,catelyn ).
+child(bran ,catelyn ).
+child(rickon ,catelyn ).
+child(robin ,jon ).
+child(robin ,lisa ).
+child(gilly,craster).
+child(joffrey ,cersi ).
+child(tommen ,cersi ).
+child(myrcella ,cersi ).
+child(gendry,robert ).
+child(barra,robert ).
+child(robert ,steffon ).
+child(stannis ,steffon ).
+child(renly ,steffon ).
+child(robert ,cassana ).
+child(stannis ,cassana ).
+child(renly ,cassana ).
+child(shireen,stannis ).
+child(shireen,selyse ).
+child(joffrey ,jaime ).
+child(tommen ,jaime ).
+child(myrcella ,jaime ).
+child(tyron,tywin  ).
+child(jaime ,tywin ).
+child(cersi ,tywin ).
+child(tyron ,joanna ).
+child(jaime ,joanna ).
+child(cersi ,joanna ).
+child(tywin ,tytos ).
+child(kevan ,tytos ).
+child(lancel ,kevan ).
+child(martyn ,kevan ).
+child(willem ,kevan ).
+child(lancel ,dorna ).
+child(martyn ,dorna ).
+child(willem ,dorna ).
+child(theon ,balon ).
+child(yara ,balon ).
+child(viserys ,aerys ).
+child(daenerys ,aerys ).
+child(viserys ,rhaella ).
+child(daenerys ,rhaella ).
+child(rhaego,drogo).
+child(rhaego,daenerys ).
+child(drogan,daenerys ).
+child(viserion,daenerys ).
+child(rhaegal,daenerys ).
+
+
+male(eddard ).
+male(robb ).
+male(bran ).
+male(rickon ).
+male(jonsnow).
+male(jon ).
+male(edmure).
+male(hoster ).
+male(craster).
+male(robert ).
+male(jaime).
+male(joffrey).
+male(tommen).
+male(tywin).
+male(tyron ).
+male(tytos).
+male(balon ).
+male(theon ).
+male(gendry).
+male(barra).
+male(steffon ).
+male(kevan).
+male(richard).
+male(brandon ).
+male(martyn).
+male(willem ).
+male(aerys ).
+male(viserys).
+male(drogo).
+male(rhaego).
+male(drogan).
+male(viserion).
+male(rhaegal).
+male(jaehaerys).
+male(aegonV).
+male(rhaella).
+male(robin).
+
+
+female(catelyn).
+female(sansa).
+female(arya ).
+female(lisa).
+female(gilly).
+female(cersi ).
+female(myrcella).
+female(joanna ).
+female(yara ).
+female(cassana ).
+female(selyse ).
+female(shireen).
+female(lancel ).
+female(dorna ).
+female(margaery ).
+female(talisa ).
+female(rhaella ).
+female(daenerys ).
+female(aegonVwife).
+female(jaehaeryswife).
+female(rhaellewife).
+female(minisa).
+
+are_married(X,Y):-married(X,Y).
+are_married(X,Y):-married(Y,X).
+ 
+father(X,Y):-child(Y,X),male(X).
+mother(X,Y):-child(Y,X),female(X).
+
+ancestor(X,Y):-child(Y,X).
+ancestor(X,Y):-child(Y,Z),ancestor(X,Z).
+descendant(X,Y):-ancestor(Y,X).
+
+grandparent(X,Y):-child(Z,X),child(Y,Z).
+grandson(X,Y):-male(X),grandparent(Y,X).
+granddaugther(X,Y):-female(X),grandparent(Y,X).

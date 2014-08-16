@@ -1,0 +1,5 @@
+married(A,B).
+
+child(X) :- married(ass(a,d),G).
+
+
